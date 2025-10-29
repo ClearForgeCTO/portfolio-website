@@ -1,0 +1,8 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+errors:
+  ERR_001_AUTH_FAILED: "Authentication failed"
+  ERR_002_INSUFFICIENT_PERMISSIONS: "User lacks required permissions"
+  ERR_100_PII_TOKENIZATION_FAILED: "Presidium Gateway tokenization error"
+  ERR_101_PII_REHYDRATION_DENIED: "Policy denied PII rehydration"
+  ERR_200_RATE_LIMIT_EXCEEDED: "Rate limit exceeded"

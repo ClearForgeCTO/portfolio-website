@@ -1,0 +1,10 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+scenario_1_startup_saas:
+  customer: "10-person SaaS startup"
+  needs: ["CI/CD","basic monitoring","auth"]
+  journey: "Startup → Growth (6 months)"
+scenario_2_growth_fintech:
+  customer: "50-person fintech"
+  needs: ["compliance","audit","advanced RBAC"]
+  journey: "Growth → Scale (12 months)"

@@ -1,0 +1,93 @@
+version: 1.0
+updated_at: 2025-10-28T21:01:39.409113Z
+entities:
+  Tenant:
+    key: "tenants/{tenantId}"
+    schema:
+      id: string
+      name: string
+      tier: [core,growth,scale,enterprise]
+      branding:
+        logoUrl: string
+        primary: string
+        darkMode: boolean
+      featureFlags: map[string,bool]
+      policies: map[string,string]
+      createdAt: timestamp
+      updatedAt: timestamp
+  User:
+    key: "users/{userId}"
+    schema:
+      id: string
+      email: string
+      tenants: string[]
+      roles: map[tenantId]string[]
+      attributes:
+        department: string
+        geo: string
+        mfa: boolean
+      createdAt: timestamp
+  Role:
+    key: "roles/{roleId}"
+    schema:
+      name: string
+      grants: string[]
+  Policy:
+    key: "policies/{policyId}"
+    schema:
+      action: string
+      expression: string   # JEXL/REGO pointer
+      description: string
+  NavTemplate:
+    key: "navTemplates/{templateId}"
+    schema:
+      name: string
+      items:
+        - label: string
+          href: string
+          grant: string
+          flag: string?
+  PersonaConfig:
+    key: "personaConfigs/{personaId}"
+    schema:
+      homeRoute: string
+      widgets:
+        - component: string
+          data: string
+  AuditLog:
+    key: "audit/{id}"
+    schema:
+      ts: timestamp
+      actor: string
+      action: string
+      resource: string
+      tenantId: string
+      traceId: string
+      metadata: map[string,any]
+  PiiToken:
+    key: "piiTokens/{id}"
+    schema:
+      token: string
+      type: string
+      checksum: string
+      lastRehydratedAt: timestamp
+  DocumentPack:
+    key: "packs/{packId}"
+    schema:
+      id: number
+      name: string
+      phase: number
+      status: [draft,ready,validated]
+      paths:
+        readme: string
+        guide: string
+        manifest: string
+  Manifest:
+    schema:
+      version: string
+      generated_at: timestamp
+      files:
+        type: map
+        value:
+          sha256: string
+          bytes: number

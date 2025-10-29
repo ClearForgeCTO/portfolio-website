@@ -1,0 +1,34 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+startup:
+  requirements:
+    - "Basic CI/CD pipeline"
+    - "Single environment (dev)"
+    - "Manual deployments OK"
+  features_unlocked:
+    - "CoreForge basics"
+    - "Spectra telemetry"
+growth:
+  requirements:
+    - "Multi-environment (dev/staging/prod)"
+    - "Automated deployments"
+    - "Basic observability"
+  features_unlocked:
+    - "Prism dashboards"
+    - "Advanced RBAC"
+scale:
+  requirements:
+    - "Blue-green/canary deployment strategy"
+    - "OPA policies enforced"
+    - "P95 latency <= 500ms"
+  features_unlocked:
+    - "Feature flags"
+    - "FinanceIQ forecasts"
+sustain:
+  requirements:
+    - "SLO error budget burn <= 10% weekly"
+    - "7-year audit retention configured"
+    - "Quarterly pen testing"
+  features_unlocked:
+    - "SBOM required"
+    - "Provenance attestations"

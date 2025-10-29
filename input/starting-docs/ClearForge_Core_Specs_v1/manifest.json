@@ -1,0 +1,26 @@
+{
+  "version": "v1.0",
+  "generated_at": "2025-10-28T21:01:39.409113Z",
+  "files": {
+    "maturity_criteria.yaml": {
+      "sha256": "3cfcd64cb828835ae07da399046788ae5a764c34c5192e6574d5bf0534c419bf",
+      "bytes": 2532
+    },
+    "integration_map.yaml": {
+      "sha256": "8ccbd1ac6a523911771a9e49c5cdc8e71d0ac1cae72ab395aac81746cb67f92c",
+      "bytes": 1563
+    },
+    "data_models.yaml": {
+      "sha256": "7d8f796f9a68411ceed479d805e9c41ebe2bc200db4c91433eb26971431bb246",
+      "bytes": 2003
+    },
+    "api_contracts.yaml": {
+      "sha256": "e03fc0a6443bf369139a4d2f01e758553d39ac1ff51c457b72ef6efcb621b3e9",
+      "bytes": 1702
+    },
+    "user_scenarios.yaml": {
+      "sha256": "5bbfd3d759690331577e27aa4c14c22273eb90aa23476d48ca167467c9c1c9f9",
+      "bytes": 1889
+    }
+  }
+}

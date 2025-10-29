@@ -1,0 +1,8 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+services: "kebab-case (user-auth-service)"
+apis: "/v1/resource-name"
+databases: "snake_case (user_profiles)"
+environment_vars: "SCREAMING_SNAKE_CASE"
+branches: "feature/bugfix/release/hotfix"
+docker_images: "org/name:semver"

@@ -1,0 +1,21 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+authentication:
+  method: "JWT + refresh tokens"
+  expiry:
+    access: "15m"
+    refresh: "7d"
+encryption:
+  in_transit: "TLS 1.3"
+  at_rest: "AES-256-GCM"
+pii_handling:
+  detection: "Presidium Gateway (Presidio)"
+  tokenization: "At ingress"
+  rehydration: "Policy-based (HCAF)"
+keys_management:
+  kms: "GCP KMS"
+  rotation: "90 days"
+audit_logging:
+  retention: "7y"
+  sink: "BigQuery"
+  fields: ["actor","action","resource","tenantId","traceId","ts"]

@@ -1,0 +1,60 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+tenant_config:
+  maturity_stage: ["startup","growth","scale","sustain"]
+  tier: ["core","growth","scale"]
+  enabled_features: []
+  policies:
+    geo: ["US","EU","GLOBAL"]
+    pii_level: ["restricted","sensitive","high"]
+  branding:
+    logoUrl: string
+    primary: string
+    darkMode: boolean
+user_profile:
+  role: ["admin","operator","viewer"]
+  permissions: "RBAC_structure"
+  attributes:
+    department: string
+    geo: string
+    mfa: boolean
+entities:
+  Tenant:
+    key: "tenants/{tenantId}"
+    schema:
+      id: string
+      name: string
+      tier: ["core","growth","scale"]
+      maturity_stage: ["startup","growth","scale","sustain"]
+      featureFlags: map[string,bool]
+      policies: map[string,string]
+      createdAt: timestamp
+      updatedAt: timestamp
+  User:
+    key: "users/{userId}"
+    schema:
+      id: string
+      email: string
+      tenants: string[]
+      roles: map[tenantId]string[]
+      attributes: map[string,any]
+  Role:
+    key: "roles/{roleId}"
+    schema:
+      name: string
+      grants: string[]
+  Policy:
+    key: "policies/{policyId}"
+    schema:
+      action: string
+      expression: string
+  AuditLog:
+    key: "audit/{id}"
+    schema:
+      ts: timestamp
+      actor: string
+      action: string
+      resource: string
+      tenantId: string
+      traceId: string
+      metadata: map[string,any]

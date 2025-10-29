@@ -1,0 +1,64 @@
+version: 1.0
+updated_at: 2025-10-28T21:01:39.409113Z
+model: Progressive Enablement™
+tiers:
+  - id: core
+    description: "Safe defaults for early-stage SMBs; minimal governance, high guidance."
+    unlocks:
+      features: [observability.basics, readiness.checks, docs.generator]
+      policies: [auth.mfa.recommended, pii.tokenize.required]
+    gates:
+      - name: "stability-7d"
+        metric: "uptime.seven_day"
+        threshold: ">= 99.0%"
+      - name: "incident-discipline"
+        metric: "incident.postmortem.rate"
+        threshold: ">= 80% with actions"
+    human_overrides:
+      required_for: [billing.limit_change, external_api.keys.export]
+  - id: growth
+    description: "Adds automation, cost controls, and initial governance."
+    unlocks:
+      features: [automation.jobs, cost.guardrails, ai.routing.multi]
+      policies: [rbac.enforced, abac.geo_required, change.review.dual]
+    gates:
+      - name: "traffic-p95-latency"
+        metric: "latency.p95"
+        threshold: "<= 500ms"
+      - name: "security-scan"
+        metric: "vuln.critical.age"
+        threshold: "<= 24h"
+    human_overrides:
+      required_for: [prod.deployments, data.export.bulk]
+  - id: scale
+    description: "Enterprise-grade: rigorous governance, canary/blue-green, advanced privacy."
+    unlocks:
+      features: [deploy.blue_green, feature.flags, financeIQ.forecasts, readyRank.advanced]
+      policies: [opa.required, slsa.level3, dlp.deep_scan]
+    gates:
+      - name: "error-budget"
+        metric: "slo.error_budget_burn"
+        threshold: "<= 10% weekly"
+      - name: "observability-coverage"
+        metric: "otel.coverage.services"
+        threshold: ">= 95%"
+    human_overrides:
+      required_for: [pii.schema.change, autonomy.level_increase]
+  - id: enterprise
+    description: "Highly regulated; formal approvals, external audit hooks, full provenance."
+    unlocks:
+      features: [provenance.attestations, sbom.required, partner.marketplace]
+      policies: [two_person_rule, privacy.impact_assessment, geo.data_residency]
+    gates:
+      - name: "audit-trail"
+        metric: "audit.trail.completeness"
+        threshold: "== 100%"
+      - name: "resilience"
+        metric: "dr.recovery.time_objective"
+        threshold: "<= 15m"
+    human_overrides:
+      required_for: [model.deployment, finance.closing, compliance.exemptions]
+evaluation:
+  frequency: "weekly"
+  inputs: [spectra.metrics, prism.reports, audit.logs]
+  decision_logic: "advance only when all gates satisfied for 2 consecutive periods"

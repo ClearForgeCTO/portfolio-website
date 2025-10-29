@@ -1,0 +1,17 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+gdpr:
+  - "Right to erasure"
+  - "Data portability"
+  - "Consent management"
+soc2:
+  - "Access controls (RBAC/ABAC)"
+  - "Audit logging"
+  - "Change management"
+ccpa_cpra:
+  - "Right to deletion"
+  - "Do Not Sell My Info"
+  - "Timely response SLAs"
+eprivacy:
+  - "Cookie consent"
+  - "Data minimization"

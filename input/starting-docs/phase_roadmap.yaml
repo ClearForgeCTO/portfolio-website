@@ -1,0 +1,30 @@
+version: 3.0
+phases:
+  - id: 1
+    name: Core Foundations
+    purpose: "Establish the engineering, AI, and operational backbone of the ClearForge platform."
+    focus: "Environments, CI/CD, architecture, data integrity, transparency, and internal knowledge operations."
+  - id: 2
+    name: Governance & Expansion
+    purpose: "Layer on automation, security, integration, and adaptive growth systems."
+    focus: "Policy-as-code, RBAC/ABAC, orchestration, APIs, ethical scaling, and dynamic frameworks for maturity evolution."
+  - id: 3
+    name: Narrative & Intelligence
+    purpose: "Transform telemetry and analytics into human-readable intelligence."
+    focus: "Narrative reporting, contextual briefings, actionable insights, ethical storytelling, and trust transparency."
+  - id: 4
+    name: Enterprise Functions
+    purpose: "Recreate core enterprise departments as modular frameworks accessible to SMBs."
+    focus: "Finance, accounting, HR, reputation, audit, product design, and research — all AI-assisted and governance-backed."
+  - id: 5
+    name: Enterprise System
+    purpose: "Combine all preceding packs into a unified 'Enterprise-in-a-Box' simulation."
+    focus: "Full digital enterprise model with maturity evolution, scaling patterns, and lifecycle governance baked in."
+  - id: 6
+    name: Ecosystem & Growth
+    purpose: "Extend ClearForge beyond the platform — enabling third-party developers, partners, and open-source contributors."
+    focus: "API marketplace, SDKs, plug-ins, and ecosystem incentives (ClearForge Community, Verified Partners, OpenBlueprints)."
+  - id: 7
+    name: Autonomy & Evolution
+    purpose: "Evolve ClearForge into a self-optimizing, AI-managed enterprise framework."
+    focus: "Continuous learning loops, autonomous orchestration, predictive compliance, and adaptive market intelligence."

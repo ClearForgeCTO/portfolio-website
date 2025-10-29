@@ -1,0 +1,50 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+standards:
+  versioning: "semantic (v1, v2)"
+  authentication: "JWT with RBAC"
+  authorization: "RBAC + ABAC (policy-as-code via OPA)"
+  rate_limiting: "tenant-based"
+  idempotency:
+    header: "Idempotency-Key"
+    ttl: "24h"
+  headers:
+    required: ["x-request-id","x-tenant-id","authorization"]
+  error_format:
+    code: "ERR_001"
+    message: "Human readable"
+    trace_id: "correlation-id"
+patterns:
+  rest: true
+  graphql: optional
+contracts:
+  tenants:
+    base: "/v1/tenants"
+    endpoints:
+      - method: GET
+        path: "/"
+        auth: "admin"
+        desc: "List tenants"
+      - method: POST
+        path: "/"
+        auth: "super_admin"
+        desc: "Create tenant"
+  packs:
+    base: "/v1/packs"
+    endpoints:
+      - method: GET
+        path: "/{id}"
+        auth: "user"
+        desc: "Fetch pack metadata"
+      - method: POST
+        path: "/{id}/validate"
+        auth: "admin"
+        desc: "Trigger pack validation"
+schemas:
+  ErrorResponse:
+    type: object
+    required: ["code","message"]
+    properties:
+      code: {"type":"string"}
+      message: {"type":"string"}
+      trace_id: {"type":"string"}

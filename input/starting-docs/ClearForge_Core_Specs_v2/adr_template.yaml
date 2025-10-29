@@ -1,0 +1,57 @@
+version: 1.0
+generated_at: 2025-10-28T21:06:26.518822Z
+template:
+  id: "ADR-XXXX"
+  title: "Short decision title"
+  status: ["Proposed","Accepted","Deprecated","Superseded"]
+  context: "Background and forces leading to the decision"
+  decision: "The choice made"
+  alternatives:
+    - name: "Option A"
+      pros: ["..."]
+      cons: ["..."]
+    - name: "Option B"
+      pros: ["..."]
+      cons: ["..."]
+  consequences:
+    positive: ["..."]
+    negative: ["..."]
+  decision_drivers: ["cost","latency","compliance","maintainability"]
+  references: ["link-to-issue","doc-urls"]
+catalog_examples:
+  - id: "ADR-0001"
+    title: "Firestore for operational data vs PostgreSQL"
+    status: "Accepted"
+    context: "Multi-tenant SaaS, serverless ops, elastic scaling, low ops burden"
+    decision: "Use Firestore (document store) for operational workloads; BigQuery for analytics"
+    alternatives:
+      - name: "PostgreSQL"
+        pros: ["relational integrity","mature ecosystem"]
+        cons: ["ops overhead","sharding/scale complexity"]
+    consequences:
+      positive: ["reduced ops","auto-scaling","tight GCP integration"]
+      negative: ["eventual consistency patterns","query constraints"]
+  - id: "ADR-0002"
+    title: "Presidio for PII vs custom solution"
+    status: "Accepted"
+    context: "Need reliable PII detection/tokenization with OSS community support"
+    decision: "Adopt Microsoft Presidio as the PII engine via Presidium Gateway"
+    alternatives:
+      - name: "Custom NLP"
+        pros: ["full control"]
+        cons: ["reinventing detection","higher risk"]
+    consequences:
+      positive: ["faster delivery","community-vetted","extensible analyzers"]
+      negative: ["upstream dependency management"]
+  - id: "ADR-0003"
+    title: "Multi-LLM strategy (Aurora Stack)"
+    status: "Accepted"
+    context: "Accuracy, latency, cost variance across providers"
+    decision: "Route across models; use consensus + thresholds; HCAF for human gates"
+    alternatives:
+      - name: "Single LLM"
+        pros: ["simplicity"]
+        cons: ["vendor lock-in","suboptimal QoS"]
+    consequences:
+      positive: ["resilience","optimization by task"]
+      negative: ["routing complexity"]

@@ -1,0 +1,14 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+startup_tier:
+  compute: "2 vCPU, 4GB RAM"
+  storage: "10GB"
+  estimated_monthly: "$50-100"
+growth_tier:
+  compute: "4 vCPU, 8GB RAM"
+  storage: "50GB"
+  estimated_monthly: "$150-300"
+scale_tier:
+  compute: "8 vCPU, 16GB RAM"
+  storage: "200GB"
+  estimated_monthly: "$600-1200"

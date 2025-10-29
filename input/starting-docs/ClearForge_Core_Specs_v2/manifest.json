@@ -1,0 +1,58 @@
+{
+  "version": "v2.0",
+  "generated_at": "2025-10-28T21:06:26.518822Z",
+  "files": {
+    "adr_template.yaml": {
+      "sha256": "701fbdf7f6c290045e25ef9dfc5426ff72e1d24d5a4d1655d486f755feceb921",
+      "bytes": 2203
+    },
+    "data_models.yaml": {
+      "sha256": "12b0a53f1e56aaf7ad66f861e4db400aff02da013cabe8443b93f6ca8c9de87e",
+      "bytes": 1394
+    },
+    "api_contracts.yaml": {
+      "sha256": "56ca499f94e54ad8ee5f162389f414431aa9fda6f285f60264536d61dd004a08",
+      "bytes": 1187
+    },
+    "maturity_criteria.yaml": {
+      "sha256": "31c032ba8d1141cad4337f9f0c3fa0a917d9acfc8b0f2671f341f2d2dcd3f1b6",
+      "bytes": 852
+    },
+    "integration_map.yaml": {
+      "sha256": "e4b3730b38486d41e727f20ca00b8b73286e590fa5ef90edfcd55082196abba9",
+      "bytes": 684
+    },
+    "security_baseline.yaml": {
+      "sha256": "507eaf20a075d73020e30183d31353b829cefd51385009f098b6061753da5fdb",
+      "bytes": 507
+    },
+    "compliance_requirements.yaml": {
+      "sha256": "2b491a706dcaebfb829caf57f0f8a5036ac5cd125a916c5e79d9bd8d0c531cb6",
+      "bytes": 357
+    },
+    "developer_journey.md": {
+      "sha256": "5fe62113f2ff82703a38fe9d49d3a2cc1080c10608652cb4ecad8d0ca3508530",
+      "bytes": 630
+    },
+    "user_scenarios.yaml": {
+      "sha256": "bf8617ccad791c676b9b43751e974cd148abead92903a744d3629380d1d112ec",
+      "bytes": 352
+    },
+    "error_codes.yaml": {
+      "sha256": "7ca405be7ab2b38d4eee86424233284935da3c95c74589273e75403f99dd37ce",
+      "bytes": 371
+    },
+    "resource_model.yaml": {
+      "sha256": "ffeaeec1ecbb40b3f1bdc043e992d64c1780007e5fccf22ea1eb7c3d208375ca",
+      "bytes": 331
+    },
+    "testing_standards.yaml": {
+      "sha256": "49785d9fd2b67d74e38fb68e6f2e3a008272e0f290345de6c0aebb1b4b098e84",
+      "bytes": 361
+    },
+    "naming_conventions.yaml": {
+      "sha256": "b2606549bb812c2432cebaeed79e0ed8621ddfc456696f29cc0c418ff9b1a39c",
+      "bytes": 278
+    }
+  }
+}

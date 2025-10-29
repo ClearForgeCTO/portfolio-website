@@ -1,0 +1,70 @@
+version: 1.0
+updated_at: 2025-10-28T21:01:39.409113Z
+standards:
+  versioning: "prefix: /v1; no breaking changes without /v2"
+  auth:
+    scheme: "OAuth2 (user/app) + JWT"
+    service_to_service: "GCP service accounts"
+  headers:
+    required: ["x-request-id","x-tenant-id","authorization"]
+  pagination:
+    style: "cursor"
+    params: ["limit","cursor"]
+  errors:
+    shape:
+      code: string
+      message: string
+      trace_id: string
+    examples:
+      - code: "FORBIDDEN"
+        message: "insufficient grants"
+      - code: "INVALID_INPUT"
+        message: "schema validation failed"
+  idempotency:
+    header: "Idempotency-Key"
+    ttl: "24h"
+  rate_limits:
+    default_rps: 10
+    burst: 50
+    retry_after_header: true
+  webhooks:
+    signature: "HMAC-SHA256"
+    header: "X-ClearForge-Signature"
+    replay_protection: true
+contracts:
+  - name: tenants
+    base: "/v1/tenants"
+    endpoints:
+      - method: GET
+        path: "/"
+        auth: "admin"
+        desc: "List tenants"
+      - method: POST
+        path: "/"
+        auth: "super_admin"
+        desc: "Create tenant"
+  - name: packs
+    base: "/v1/packs"
+    endpoints:
+      - method: GET
+        path: "/{id}"
+        auth: "user"
+        desc: "Fetch pack metadata"
+      - method: POST
+        path: "/{id}/validate"
+        auth: "admin"
+        desc: "Trigger pack validation"
+schemas:
+  TenantCreate:
+    type: object
+    required: ["name","tier"]
+    properties:
+      name: {type: string}
+      tier: {enum: ["core","growth","scale","enterprise"]}
+  ErrorResponse:
+    type: object
+    required: ["code","message"]
+    properties:
+      code: {type: string}
+      message: {type: string}
+      trace_id: {type: string}

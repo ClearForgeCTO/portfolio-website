@@ -1,0 +1,29 @@
+version: 1.0
+updated_at: 2025-10-28T21:06:26.518822Z
+data_flow:
+  ingress: "Gateway (Presidium) → tokenize PII"
+  routing: "Aurora Stack → model selection"
+  processing: "Service Layer → business logic"
+  storage: "Data Layer (Firestore/BigQuery)"
+  observability: "Spectra → Prism → ForgeNarrate"
+  governance: "CoreForge (throughout)"
+components:
+  gateway:
+    - intelligence-gateway
+  privacy:
+    - presidium-gateway
+  orchestration:
+    - aurora-router
+  observability:
+    - spectra-bus
+    - prism-analytics
+  data:
+    - firestore
+    - bigquery
+    - redis
+    - pinecone
+security:
+  transport: "TLS 1.3"
+  auth: "OAuth2 + JWT"
+  signing: "Cosign"
+  policy: "OPA"

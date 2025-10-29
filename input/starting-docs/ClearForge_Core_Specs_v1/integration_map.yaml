@@ -1,0 +1,60 @@
+version: 1.0
+updated_at: 2025-10-28T21:01:39.409113Z
+domains:
+  gateway:
+    services:
+      - name: intelligence-gateway
+        tech: nodejs
+        endpoints: [/ingress, /route, /health]
+        protocols: [https, ws]
+        front_of: [presidium-gateway]
+  privacy:
+    services:
+      - name: presidium-gateway
+        tech: python-fastapi
+        purpose: "PII tokenization/reconstitution"
+        dependencies: [kms, firestore]
+        protocols: [https]
+  orchestration:
+    services:
+      - name: aurora-router
+        tech: python-fastapi
+        purpose: "multi-LLM routing & consensus"
+        dependencies: [spectra-bus, feature-flags, vector-store]
+  observability:
+    services:
+      - name: spectra-bus
+        tech: nats
+        purpose: "events, logs, metrics"
+      - name: prism-analytics
+        tech: typescript
+        purpose: "dashboards & reports"
+  data:
+    stores:
+      - name: firestore
+        role: transactional
+      - name: bigquery
+        role: analytics
+      - name: redis
+        role: cache
+      - name: pinecone
+        role: vector
+flows:
+  - name: request_flow
+    steps:
+      - gateway.intelligence-gateway.receive
+      - privacy.presidium-gateway.tokenize
+      - orchestration.aurora-router.route
+      - services.domain-specific.process
+      - privacy.presidium-gateway.rehydrate
+      - respond.client
+  - name: telemetry_flow
+    steps:
+      - emit.spectra-bus
+      - transform.prism-analytics
+      - narrate.forgenarrate
+security:
+  transport: tls1.3
+  auth: oauth2+jwt
+  signing: cosign
+  policy: opa
